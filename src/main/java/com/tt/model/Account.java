@@ -17,8 +17,22 @@ public class Account {
         return balance;
     }
 
+    /**
+     * save money in account
+     * @param amount mony to save
+     */
     public void deposit(BigDecimal amount){
        balance = balance.add(amount);
     }
+
+    /**
+     * retrieve money from account
+     * @param amount mony to retrieve
+     */
+    public void withdraw(BigDecimal amount){
+        balance = balance.subtract(amount);
+    }
+
+
 
 }

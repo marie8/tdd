@@ -45,4 +45,32 @@ public class AccountTest {
         assertEquals(existingAccount.getBalance(), new BigDecimal("600.40"));
     }
 
+    /**
+     *  make a withdrawal from account
+     */
+    @Test
+    public void withrawAccount() {
+        // When
+        account.withdraw(new BigDecimal("200.50"));
+
+        // Then
+        assertEquals(account.getBalance(), new BigDecimal("200.50").negate());
+    }
+
+    /**
+     *  make a withdraw from an existing account
+     */
+    @Test
+    public void withdrawFromExistingAccount() {
+        //Given
+        Account existingAccount = new Account(new BigDecimal("100.10"));
+
+        // When
+        existingAccount.withdraw(new BigDecimal("58.30"));
+
+        // Then
+        assertEquals(existingAccount.getBalance(), new BigDecimal("41.80"));
+    }
+
+
 }
